@@ -1,0 +1,63 @@
+using System;
+namespace maxElement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] matrix =
+            {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            };
+            Random random = new Random();
+            int maxElement = 0;
+
+            Console.WriteLine("Исходная матрица:");
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    matrix[i, j] = random.Next(1, 10);
+                    Console.Write(matrix[i, j] + "  ");
+
+                    if (matrix[i, j] > maxElement)
+                    {
+                        maxElement = matrix[i, j];
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine($"\nМаксимальный элемент матрицы: {maxElement}");
+            Console.WriteLine("\nПолученная матрица:");
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (matrix[i, j] == maxElement)
+                    {
+                        matrix[i, j] = 0;
+                    }
+
+                    Console.Write(matrix[i, j] + "  ");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.Read();
+        }
+    }
+}
